@@ -17,8 +17,8 @@ class shop_spider(Spider):
     start_urls = [
                   ]
     
-    begin = 100000
-    scop = 100000
+    begin = 300000
+    scop = 300000
     i = 0
     while(i<=scop):
         url = 'http://www.china-10.com/shop/%d.html' % (begin+i)

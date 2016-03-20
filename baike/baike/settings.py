@@ -87,7 +87,7 @@ ITEM_PIPELINES = {
 #HTTPCACHE_STORAGE='scrapy.extensions.httpcache.FilesystemCacheStorage'
 
 #start dbconfig
-MYSQL_HOST = 'localhost'
+MYSQL_HOST = '127.0.0.1'
 MYSQL_DBNAME = 'spider_db'
 MYSQL_USER = 'root'
 MYSQL_PASSWD = 'root'

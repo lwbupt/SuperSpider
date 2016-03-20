@@ -90,14 +90,14 @@ ITEM_PIPELINES = {
 #HTTPCACHE_STORAGE='scrapy.extensions.httpcache.FilesystemCacheStorage'
 
 #start dbconfig
-MYSQL_HOST = 'localhost'
+MYSQL_HOST = '127.0.0.1'
 MYSQL_DBNAME = 'spider_db'
 MYSQL_USER = 'root'
 MYSQL_PASSWD = 'root'
 MYSQL_PORT = 3306
 #end dbconfig
 
-IMAGES_STORE = r'D:\coding\workspace\Projects\jcmd\img'
+IMAGES_STORE = r'D:\ProgramingIDE\workspace\SuperSpider\jcmd\img'
 
 IMAGES_EXPIRES = 90
 
