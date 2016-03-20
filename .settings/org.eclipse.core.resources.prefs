@@ -1,0 +1,12 @@
+eclipse.preferences.version=1
+encoding//baike/baike/items.py=utf-8
+encoding//baike/baike/pipelines.py=utf-8
+encoding//baike/baike/settings.py=utf-8
+encoding//baike/baike/spiders/Spider_Qijia.py=utf-8
+encoding//baike/baike/spiders/Spider_Yihaojiaju.py=utf-8
+encoding//jcmd/jcmd/items.py=utf-8
+encoding//jcmd/jcmd/pipelines.py=utf-8
+encoding//jcmd/jcmd/settings.py=utf-8
+encoding//jcmd/jcmd/spiders/brand_spider.py=utf-8
+encoding//jcmd/jcmd/spiders/category_spider.py=utf-8
+encoding//jcmd/jcmd/spiders/shop_spider.py=utf-8
