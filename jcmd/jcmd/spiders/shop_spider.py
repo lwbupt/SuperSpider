@@ -17,8 +17,8 @@ class shop_spider(Spider):
     start_urls = [
                   ]
     
-    begin = 300000
-    scop = 300000
+    begin = 365000
+    scop = 35000
     i = 0
     while(i<=scop):
         url = 'http://www.china-10.com/shop/%d.html' % (begin+i)
@@ -54,14 +54,23 @@ class shop_spider(Spider):
         sItem['shop_name']= sel.xpath(".//div[@class='shoptitle']").extract()[0]
         #相关品牌信息
         brand_info = sel.xpath(".//div[@class='keywordlist']/div/a[@key='brandid']")
-        sItem['brand_id'] = brand_info.xpath("@tid").extract()[0] if brand_info.xpath("@tid").extract() else ""
-        sItem['brand_name'] = brand_info.xpath("@qname").extract()[0] if brand_info.xpath("@qname").extract() else ""
+        sItem['brand_id'] = brand_info.xpath("@tid").extract()[0] if brand_info.xpath
+
+("@tid").extract() else ""
+        sItem['brand_name'] = brand_info.xpath("@qname").extract()[0] if brand_info.xpath
+
+("@qname").extract() else ""
         #相关分类信息
         category_info = sel.xpath(".//div[@class='keywordlist']/div/a[@key='catid']")
-        sItem['category_id'] = category_info.xpath("@tid").extract()[0] if category_info.xpath("@tid").extract() else ""
-        sItem['category_name'] = category_info.xpath("@qname").extract()[0] if category_info.xpath("@qname").extract() else ""
+        sItem['category_id'] = category_info.xpath("@tid").extract()[0] if category_info.xpath
+
+("@tid").extract() else ""
+        sItem['category_name'] = category_info.xpath("@qname").extract()[0] if category_info.xpath
+
+("@qname").extract() else ""
         #门店介绍,pipe去除html
-        sItem['shop_introduction'] = sel.xpath(".//div[@class='shopbox']/div").extract()[0]
+        shop_introduction = sel.xpath(".//div[@class='shopbox']/div").extract()
+        sItem['shop_introduction'] = shop_introduction[0] if shop_introduction else ""
         
         #相关图片
         sItem['image_urls'] = sel.xpath(".//div[@class='shopbox shopinfo']/div/img/@src").extract()
@@ -70,6 +79,7 @@ class shop_spider(Spider):
         sItem['shop_type'] = ""
         sItem['shop_address'] = ""
         sItem['shop_phone'] = ""
+        sItem['shop_site'] = ""
         #门店信息列表
         shop_infolist= sel.xpath(".//div[@class='shopbox shopinfo']/ul/li")
         
