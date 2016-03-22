@@ -63,7 +63,7 @@ NEWSPIDER_MODULE = 'baike.spiders'
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
     'baike.pipelines.BaikeImagesPipe' : 1,
-    'baike.pipelines.InsertTitlePipe' : 100,
+    'baike.pipelines.InsertTitlePipe' : 10,
     'baike.pipelines.InsertContentPipe' : 200,
 }
 
