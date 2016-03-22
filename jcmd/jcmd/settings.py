@@ -103,6 +103,6 @@ IMAGES_STORE = r'D:\ProgramingIDE\workspace\SuperSpider\jcmd\img'
 
 IMAGES_EXPIRES = 90
 
-DOWNLOAD_DELAY = 1
+#DOWNLOAD_DELAY = 1
 
 COOKIES_ENABLED=False

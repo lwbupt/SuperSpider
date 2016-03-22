@@ -10,4 +10,5 @@ encoding//jcmd/jcmd/settings.py=utf-8
 encoding//jcmd/jcmd/spiders/brand_spider.py=utf-8
 encoding//jcmd/jcmd/spiders/category_spider.py=utf-8
 encoding//jcmd/jcmd/spiders/modify_spider.py=utf-8
+encoding//jcmd/jcmd/spiders/product_spider.py=utf-8
 encoding//jcmd/jcmd/spiders/shop_spider.py=utf-8
