@@ -63,11 +63,13 @@ NEWSPIDER_MODULE = 'jcmd.spiders'
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
     'scrapy.pipelines.images.ImagesPipeline': 1,
-    'jcmd.pipelines.Jcmd_BrandItemAlter_Pipeline':10,
-    'jcmd.pipelines.Jcmd_ShopItemAlter_Pipeline':11,
+    'jcmd.pipelines.Jcmd_BrandItemAlter_Pipeline':11,
+    'jcmd.pipelines.Jcmd_ShopItemAlter_Pipeline':12,
     'jcmd.pipelines.Jcmd_Category_Pipeline': 100,
     'jcmd.pipelines.Jcmd_Brand_Pipeline': 101,
     'jcmd.pipelines.Jcmd_Shop_Pipeline': 102,
+    
+    'jcmd.pipelines.Jcmd_BrandModify_Pipeline':901,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
@@ -101,6 +103,6 @@ IMAGES_STORE = r'D:\ProgramingIDE\workspace\SuperSpider\jcmd\img'
 
 IMAGES_EXPIRES = 90
 
-DOWNLOAD_DELAY = 0.5
+DOWNLOAD_DELAY = 1
 
 COOKIES_ENABLED=False

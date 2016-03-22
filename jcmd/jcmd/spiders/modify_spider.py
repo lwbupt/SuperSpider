@@ -15,9 +15,9 @@ class modify_spider(Spider):
     
     allowed_domain = ['china-10.com/']
     
-    start_urls = ['http://www.china-10.com/brand/1.html']
+    start_urls = []
     
-    index = 
+    index = 19002
     
     while(index<=100000):
         

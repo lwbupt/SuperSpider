@@ -66,4 +66,22 @@ class shopItem(Item):
     image_urls = Field()
     images = Field()
     url = Field()
-    
+ 
+#产品
+class productItem():
+    product_id = Field()
+    product_name = Field()
+    brand_id = Field()
+    brand_name = Field()
+    category_id = Field()
+    category_name = Field()
+    product_price = Field()
+    product_type = Field()
+    product_format = Field()
+    product_set = Field()
+    product_infonum = Field()
+    product_concern_num = Field()
+    product_data = Field()
+    image_urls = Field()
+    images= Field()
+    url = Field()

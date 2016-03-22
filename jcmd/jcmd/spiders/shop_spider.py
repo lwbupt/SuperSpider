@@ -54,20 +54,12 @@ class shop_spider(Spider):
         sItem['shop_name']= sel.xpath(".//div[@class='shoptitle']").extract()[0]
         #相关品牌信息
         brand_info = sel.xpath(".//div[@class='keywordlist']/div/a[@key='brandid']")
-        sItem['brand_id'] = brand_info.xpath("@tid").extract()[0] if brand_info.xpath
-
-("@tid").extract() else ""
-        sItem['brand_name'] = brand_info.xpath("@qname").extract()[0] if brand_info.xpath
-
-("@qname").extract() else ""
+        sItem['brand_id'] = brand_info.xpath("@tid").extract()[0] if brand_info.xpath("@tid").extract() else ""
+        sItem['brand_name'] = brand_info.xpath("@qname").extract()[0] if brand_info.xpath("@qname").extract() else ""
         #相关分类信息
         category_info = sel.xpath(".//div[@class='keywordlist']/div/a[@key='catid']")
-        sItem['category_id'] = category_info.xpath("@tid").extract()[0] if category_info.xpath
-
-("@tid").extract() else ""
-        sItem['category_name'] = category_info.xpath("@qname").extract()[0] if category_info.xpath
-
-("@qname").extract() else ""
+        sItem['category_id'] = category_info.xpath("@tid").extract()[0] if category_info.xpath("@tid").extract() else ""
+        sItem['category_name'] = category_info.xpath("@qname").extract()[0] if category_info.xpath("@qname").extract() else ""
         #门店介绍,pipe去除html
         shop_introduction = sel.xpath(".//div[@class='shopbox']/div").extract()
         sItem['shop_introduction'] = shop_introduction[0] if shop_introduction else ""

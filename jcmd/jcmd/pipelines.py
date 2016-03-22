@@ -203,4 +203,43 @@ class Jcmd_Shop_Pipeline(object):
         tx.execute(sql,(item['shop_id'],item['shop_name'],item['brand_id'],item['brand_name'],item['category_id'],item['category_name'],item['shop_type'],item['shop_phone'],item['shop_person'],item['shop_site'],item['shop_address'],item['shop_introduction'],item['images'][0]['path'],item['url']))
         
                 
+class Jcmd_BrandModify_Pipeline(object):
+    
+    def __init__(self,dbargs):
+        
+        self.dbargs = dbargs
+    
+    def process_item(self, item, spider):
+        
+        if spider.name in ['brand_modify']:
             
+            self.dbpool.runInteraction(self.updateBrand,item)
+            
+        return item
+    @classmethod
+    def from_crawler(cls,crawler):
+        settings = crawler.settings
+        dbargs = dict(
+                      host=settings['MYSQL_HOST'],
+                      db=settings['MYSQL_DBNAME'],
+                      user=settings['MYSQL_USER'],
+                      passwd=settings['MYSQL_PASSWD'],
+                      port=settings['MYSQL_PORT'],
+                      charset='utf8',
+                      cursorclass = MySQLdb.cursors.DictCursor,
+                      use_unicode= True,
+                      )
+        return cls(dbargs)
+    
+    def open_spider(self,spider):
+        
+        self.dbpool = adbapi.ConnectionPool('MySQLdb', **(self.dbargs))
+        
+    def close_spider(self,spider):
+        
+        self.dbpool.close()
+        
+    def updateBrand(self,tx,item):
+        
+        sql = 'update brand set category_name = %s where brand_id = %s'
+        tx.execute(sql,(item['category_name'],item['brand_id'])) 
