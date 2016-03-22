@@ -95,7 +95,7 @@ MYSQL_PORT = 3306
 #end dbconfig
 
 #start images download config
-IMAGES_STORE = r'D:\coding\workspace\Projects\baike\img'
+IMAGES_STORE = r'D:\ProgramingIDE\workspace\SuperSpider\baike\img'
 IMAGES_EXPIRES = 7
 #end images download config
 

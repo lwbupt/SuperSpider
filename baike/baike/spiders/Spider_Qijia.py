@@ -16,8 +16,8 @@ class Spider_Qijia(Spider):
     start_urls = [
                     #'http://www.jia.com/baike/bdetail-3083/'
                   ]
-    start_id = 3116
-    scope = 100000
+    start_id = 3012
+    scope = 10000
     
     for id in xrange(start_id, scope):
         start_urls.append("http://www.jia.com/baike/bdetail-%s"%(id))

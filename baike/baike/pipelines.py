@@ -61,6 +61,8 @@ class InsertTitlePipe(object):
 class InsertContentPipe(object):
     def __init__(self, dbargs):
         self.dbargs = dbargs
+        #去除html规则
+        self.d_html_rule = re.compile(r'<[^>]+>', re.S)
     
     def open_spider(self,spider):
         self.dbpool = adbapi.ConnectionPool('MySQLdb', **(self.dbargs))
@@ -91,7 +93,8 @@ class InsertContentPipe(object):
         i = 0
         while(i<len(item['content_name'])):
             sql = 'insert into baike_content(content_uuid,content_name,content_text,img_address,title_id) values(%s,%s,%s,%s,%s)'
-            tx.execute(sql,(item['content_uuid'][i],item['content_name'][i],item['content_text'][i],item['images'][i]['path'],item['title_id']))
+            content_text_i = self.d_html_rule.sub('', item['content_text'][i]).replace('\n',"")
+            tx.execute(sql,(item['content_uuid'][i],item['content_name'][i], content_text_i, item['images'][i]['path'],item['title_id']))
             i=i+1
             
     def handle_error(self, e):
