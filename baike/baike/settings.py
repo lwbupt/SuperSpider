@@ -63,7 +63,7 @@ NEWSPIDER_MODULE = 'baike.spiders'
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
     'baike.pipelines.BaikeImagesPipe' : 1,
-    'baike.pipelines.InsertTitlePipe' : 100,
+    'baike.pipelines.InsertTitlePipe' : 10,
     'baike.pipelines.InsertContentPipe' : 200,
 }
 
@@ -95,7 +95,7 @@ MYSQL_PORT = 3306
 #end dbconfig
 
 #start images download config
-IMAGES_STORE = r'D:\coding\workspace\Projects\baike\img'
+IMAGES_STORE = r'D:\ProgramingIDE\workspace\SuperSpider\baike\img'
 IMAGES_EXPIRES = 7
 #end images download config
 

@@ -1,5 +1,6 @@
 #encoding=utf-8
 import uuid
+from scrapy.spiders import Spider
 
 from scrapy.selector import Selector
 from scrapy.spiders.crawl import CrawlSpider, Rule
@@ -8,28 +9,20 @@ from scrapy.linkextractors.sgml import SgmlLinkExtractor
 from baike.items import Baike_Qijia_Item
 
 
-class Spider_Qijia(CrawlSpider):
-    name = 'baike_qijia_spider'
+class Spider_Qijia(Spider):
+    name = 'qijia'
     
     allowed_domain = ['jia.com/baike']
-    
     start_urls = [
-                  'http://www.jia.com/baike/'
                     #'http://www.jia.com/baike/bdetail-3083/'
                   ]
+    start_id = 3012
+    scope = 10000
     
-    rules = [
-             Rule(
-                  SgmlLinkExtractor(allow=('//www.jia.com/baike/bdetail')),
-                  callback='parse_item',
-                  follow=True
-                  )
-             ]
-            
-    def parse_item(self,response):
+    for id in xrange(start_id, scope):
+        start_urls.append("http://www.jia.com/baike/bdetail-%s"%(id))
         
-        print '*****************************\n'+response.url+'****************************\n'
-        
+    def parse(self,response):
         global uuid
         #生成uuid的namespace，和当前链接相关
         namespace = uuid.uuid3(uuid.NAMESPACE_URL,response.url)
@@ -37,6 +30,8 @@ class Spider_Qijia(CrawlSpider):
         item = Baike_Qijia_Item()
         split1 = '>'
         split2 = ';'
+        item['title_id'] = response.url.split("-")[1][:-1] #取url中的id
+        
         item['title_url'] = response.url
         item['title_name'] = Selector(response).xpath("//div[@class='artical-des atical-des1 fl']/h1/text()").extract()
         item['title_introduction'] = Selector(response).xpath("//div[@class='artical-des atical-des1 fl']/div[1]/i/text()").extract()
